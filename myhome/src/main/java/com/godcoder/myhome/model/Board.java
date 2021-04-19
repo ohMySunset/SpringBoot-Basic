@@ -9,12 +9,11 @@ import javax.persistence.Id;
 
 @Entity
 @Data
-public class Board {
+public class Board { // 게시글 데이터를 담을 빈즈객체
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String content;
-
 }
