@@ -57,6 +57,14 @@
 				<version>8.0.23</version>
 			</dependency>
 
+		<!-- 유효성 검사 : hibernate-validator -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>6.1.0.Final</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
