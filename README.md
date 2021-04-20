@@ -1,1 +1,1 @@
-## SpringBoot + Thymeleaf + JPA 활용 웹페이지 구현 (진행중)
+## Spring Boot 활용 토이프로젝트
