@@ -46,7 +46,7 @@ public class BoardAPIController {
      // 데이터를 수정하는 메서드
      @PutMapping("/boards/{id}")
      Board replaceBoard(@RequestBody Board b, @PathVariable Long id){
-         // id와 일치하는 값을 찾아서 수정한 데이터를 저장
+         // 파라미터로 받은 id와 일치하는 값을 찾아서 수정한 데이터를 저장
          return br.findById(id)
                  .map(board -> {
                      board.setTitle(b.getTitle());
