@@ -8,6 +8,8 @@ import org.thymeleaf.util.StringUtils;
 
 import java.util.List;
 
+// RestAPI + JPA + Thymeleaf
+
 @RestController
 @RequestMapping("/api")
 public class BoardAPIController {
@@ -34,7 +36,8 @@ public class BoardAPIController {
          return br.save(b);
      }
 
-     // id값으로 한 개의 정보를 조회하는 메서드
+     // id 값으로 한 개의 정보를 조회하는 메서드
+     // id 값이 있으면 반환 없으면 null 반환
      @GetMapping("/boards/{id}")
      Board one(@PathVariable Long id){
          return br.findById(id).orElse(null);
