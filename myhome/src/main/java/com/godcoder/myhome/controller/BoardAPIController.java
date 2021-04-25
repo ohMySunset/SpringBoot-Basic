@@ -8,8 +8,6 @@ import org.thymeleaf.util.StringUtils;
 
 import java.util.List;
 
-// RestAPI + JPA + Thymeleaf
-
 @RestController
 @RequestMapping("/api")
 public class BoardAPIController {

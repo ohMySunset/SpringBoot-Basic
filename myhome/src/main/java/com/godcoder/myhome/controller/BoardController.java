@@ -45,10 +45,10 @@ public class BoardController {
     @PostMapping("/form")
     public String greetingSubmit(@Valid Board board, BindingResult br){
 
-        //유효성 검사 (자바코드)
+        // 유효성 검사 (자바 코드로)
         boardValidator.validate(board, br);
 
-        //유효성 검사 (어노테이션 활용)
+        // 유효성 검사 (어노테이션 활용)
         if(br.hasErrors()){
             return "board/form";
         }
