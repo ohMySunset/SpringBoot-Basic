@@ -2,10 +2,8 @@ package com.godcoder.myhome.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -14,8 +12,10 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String name;
 
-    private String username;
-    private String password;
-    private boolean enabled;
+    // 양방향 매핑
+    @ManyToMany(mappedBy = "roles")
+    private List<User> roles;
+
 }
