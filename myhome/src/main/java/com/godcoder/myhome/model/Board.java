@@ -2,10 +2,7 @@ package com.godcoder.myhome.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -21,4 +18,10 @@ public class Board { // 게시글 데이터를 담을 빈즈객체
     @Size(min=2, max=30, message = "제목은 2자 이상 30자 이하입니다.")
     private String title;
     private String content;
+
+    // JPA를 이용하여 @ManyToOne 관계 설정하기
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
+
 }
