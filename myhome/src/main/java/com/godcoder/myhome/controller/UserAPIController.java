@@ -1,5 +1,6 @@
 package com.godcoder.myhome.controller;
 
+import com.godcoder.myhome.model.Board;
 import com.godcoder.myhome.model.User;
 import com.godcoder.myhome.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,8 +41,18 @@ public class UserAPIController {
          // 파라미터로 받은 id와 일치하는 값을 찾아서 수정한 데이터를 저장
          return br.findById(id)
                  .map(user -> {
-//                     user.setTitle(b.getTitle());
-//                     user.setContent(b.getContent());
+//                    user.setTitle(b.getTitle());
+//                    user.setContent(b.getContent());
+
+                     // 유저 정보를 저장하면서 게시글 정보도 함께 저장
+                     //user.setBoards(b.getBoards());
+
+                     // 기존 데이터는 전부 삭제 현재 수정한 데이터만 저장
+                     user.getBoards().clear();
+                     user.getBoards().addAll(b.getBoards());
+                     for(Board board : user.getBoards()){
+                         board.setUser(user);
+                     }
 
                      return br.save(user);
                  })
