@@ -28,7 +28,7 @@ public class BoardController {
     @Autowired
     private BoardValidator boardValidator;
     @Autowired
-    private BoardService boardService
+    private BoardService boardService;
 
     @GetMapping("/list")
     public String list(Model model, @PageableDefault(size = 2) Pageable pageable,
