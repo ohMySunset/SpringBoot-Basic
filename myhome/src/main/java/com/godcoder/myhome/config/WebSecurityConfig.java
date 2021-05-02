@@ -25,7 +25,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/","/account/register","/css/**").permitAll()  // 스타일시트 깨질 수 있으므로 권한처리
+                .antMatchers("/","/account/register","/css/**", "/api/**").permitAll()  // 스타일시트 깨질 수 있으므로 권한처리
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

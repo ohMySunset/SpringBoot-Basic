@@ -1,5 +1,6 @@
 package com.godcoder.myhome.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -20,8 +21,10 @@ public class Board { // 게시글 데이터를 담을 빈즈객체
     private String content;
 
     // JPA를 이용하여 @ManyToOne 관계 설정하기
+    // Many쪽에 FK 있음
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @JsonIgnore
     private User user;
 
 }

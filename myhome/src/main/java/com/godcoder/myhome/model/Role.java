@@ -1,5 +1,6 @@
 package com.godcoder.myhome.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ public class Role {
 
     // 양방향 매핑
     @ManyToMany(mappedBy = "roles")
+    @JsonIgnore
     private List<User> roles;
 
 }
