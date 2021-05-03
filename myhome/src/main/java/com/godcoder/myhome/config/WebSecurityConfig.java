@@ -56,10 +56,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     // Authentication : 로그인
     // Authorization : 권한
 
-    //@OneToOne -> 사용자 - 사용자 정보
-    //@OneToMany -> 사용자 - 게시판
-    //@ManyToOne -> 게시판 - 사용자
-    //@ManyToMany -> 사용자 - 권한
 
     @Bean
     public PasswordEncoder passwordEncoder() {

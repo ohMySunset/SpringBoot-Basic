@@ -19,6 +19,19 @@ public class User {
     private String password;
     private boolean enabled;
 
+    //@OneToOne -> 사용자 - 사용자 정보
+    //@OneToMany -> 사용자 - 게시판
+    //@ManyToOne -> 게시판 - 사용자
+    //@ManyToMany -> 사용자 - 권한
+
+    // 서로 연관된 두 테이블간의 조회방법 설정 : FetchType
+    // EAGER
+    //OneToOne
+    //ManyToMany
+    // LAZY
+    //OneToMany
+    //ManyToMany
+
     // 양방향 매핑
     @ManyToMany
     @JoinTable(
@@ -29,6 +42,8 @@ public class User {
     private List<Role> roles = new ArrayList<>();
 
     //JPA <- Hibernate <- Spring Data JPA
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<Board> boards = new ArrayList<>();
 }
