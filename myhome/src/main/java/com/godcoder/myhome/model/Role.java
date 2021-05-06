@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Data
-public class Role {
+public class Role { // 유저의 권한 데이터 빈즈
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

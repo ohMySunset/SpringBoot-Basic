@@ -26,7 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/","/account/register","/css/**", "/api/**").permitAll()  // 스타일시트 깨질 수 있으므로 권한처리
+                .antMatchers("/","/account/register","/css/**", "/api/**").permitAll()  // 로그인을 하지 않은 경우 중 접속을 허용
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -56,10 +56,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     // Authentication : 로그인
     // Authorization : 권한
 
-
     @Bean
     public PasswordEncoder passwordEncoder() {
-        // 암호화
+        // 암호화 -> DB에 암호화처리되어 저장
         return new BCryptPasswordEncoder();
     }
 
