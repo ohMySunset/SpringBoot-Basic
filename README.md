@@ -3,7 +3,7 @@
 + 홈화면
 <img width="1021" alt="image" src="https://user-images.githubusercontent.com/71749281/116910201-3894cf80-ac80-11eb-889b-4d2c6a583689.png">
 
-+ 로그인
++ 로그인 (Spring Security 사용)
 <img width="1017" alt="image" src="https://user-images.githubusercontent.com/71749281/116910231-43e7fb00-ac80-11eb-850e-75fc9b0dc81e.png">
 
 + 게시판
