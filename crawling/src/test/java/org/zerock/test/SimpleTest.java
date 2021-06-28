@@ -5,11 +5,9 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Files;
 
@@ -86,5 +84,44 @@ public class SimpleTest {
 
     }
 
- 
+    @Test
+    public void testSave3() throws Exception{
+        // 웹툰 이미지 모두 저장하기
+
+        Document doc = Jsoup.connect("https://comic.naver.com/webtoon/detail.nhn?titleId=732955&no=192&weekday=wed").get();
+        Elements imgs = doc.select(".wt_viewer img");
+
+        imgs.forEach(element -> {
+            String imgUrl = element.attr("src");
+            String imgId = element.id();
+
+            URL url = null;
+
+            try {
+
+                url = new URL(imgUrl);
+                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+
+                urlConnection.setDoOutput(true);
+                urlConnection.setDoInput(true);
+                urlConnection.setUseCaches(false);
+
+                urlConnection.setRequestProperty("user-agent","Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36");
+
+                InputStream in = urlConnection.getInputStream();
+
+                File fos = new File("/Users/yang1217/Documents/zzz/webtoon1/" + imgId);
+
+                Files.copy(in, fos.toPath());
+                
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+        });
+
+
+
+    }
 }
