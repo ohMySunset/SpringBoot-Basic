@@ -39,6 +39,7 @@ public class TodoRepositoryTests {
     @Test
     public void testSelect(){
         // Select 처리
+        // Optional<T> : T타입의 객체를 포장해주는 래퍼클래스
         Optional<Todo> result = todoRepository.findById(1L);
 
         //log.info(result.get());
